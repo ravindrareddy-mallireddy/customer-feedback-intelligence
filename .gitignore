@@ -1,0 +1,21 @@
+# Model weights
+models/
+
+# Raw and processed data
+data/raw/
+data/processed/
+
+# Virtual environment
+.venv/
+
+# Logs
+logs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Environment variables
+.env
