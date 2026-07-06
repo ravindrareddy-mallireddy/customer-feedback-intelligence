@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.8991,
+  "f1_weighted": 0.8991,
+  "f1_macro": 0.899,
+  "precision_weighted": 0.8991,
+  "recall_weighted": 0.8991,
+  "confusion_matrix": [
+    [
+      1888,
+      198
+    ],
+    [
+      215,
+      1791
+    ]
+  ]
+}

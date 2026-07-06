@@ -1,0 +1,195 @@
+# Customer Feedback Intelligence Platform
+
+A production-quality NLP pipeline that fine-tunes transformer models on real customer reviews, builds a RAG retrieval system, generates automated insights using LLMs, and presents everything in an interactive dashboard.
+
+Built as a portfolio project targeting **NLP Engineer** and **AI Data Scientist** roles.
+
+---
+
+## Architecture
+
+```
+Amazon Reviews (50k+)
+        │
+        ▼
+┌─────────────────┐
+│  Stage 1        │  Data pipeline: download → clean → split → validate
+│  Data Pipeline  │
+└────────┬────────┘
+         │ train/val/test parquet
+         ▼
+┌─────────────────┐
+│  Stage 2        │  DistilBERT + LoRA (sentiment)
+│  Fine-tuning    │  RoBERTa + LoRA (aspects)
+│                 │  BERTopic (topics)
+└────────┬────────┘
+         │ model weights
+         ▼
+┌─────────────────┐
+│  Stage 3        │  sentence-transformers embeddings
+│  RAG Pipeline   │  FAISS + ChromaDB indexing
+│                 │  cross-encoder reranking
+└────────┬────────┘
+         │ semantic search
+         ▼
+┌─────────────────┐
+│  Stage 4        │  Groq API (Llama 3)
+│  LLM Insights   │  Cluster summaries, trend detection, weekly reports
+└────────┬────────┘
+         │ structured insights
+         ▼
+┌─────────────────┐
+│  Stage 5        │  Model metrics, retrieval benchmarks, LLM rubric
+│  Evaluation     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Stage 6        │  Streamlit multi-page dashboard
+│  Dashboard      │
+└─────────────────┘
+```
+
+---
+
+## Setup
+
+### 1. Clone and create environment
+
+```bash
+git clone <repo-url>
+cd customer-feedback-intelligence
+
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 2. Environment variables
+
+```bash
+cp .env.example .env
+# Edit .env and add your Groq API key (free at console.groq.com)
+GROQ_API_KEY=your_key_here
+```
+
+### 3. Run Stage 1 — Data Pipeline
+
+```bash
+python run_stage1.py
+```
+
+**Expected time (first run):** 15–40 min (streaming from HuggingFace)  
+**Subsequent runs:** ~30 sec (reads from cache in `data/raw/`)
+
+Outputs:
+- `data/processed/train.parquet` (80%)
+- `data/processed/val.parquet` (10%)
+- `data/processed/test.parquet` (10%)
+- `data/processed/dataset_stats.png`
+- `data/evaluation/stage1_validation.json`
+
+### 4. Explore in Jupyter
+
+```bash
+jupyter lab notebooks/01_data_exploration.ipynb
+```
+
+### 5. Run Stage 2 — Fine-tuning (coming next)
+
+```bash
+python run_stage2_sentiment.py
+python run_stage2_aspect.py
+python run_stage2_topics.py
+```
+
+---
+
+## Project Structure
+
+```
+customer-feedback-intelligence/
+├── config.yaml          ← All hyperparameters (no hardcoded values in code)
+├── requirements.txt
+├── README.md
+├── run_stage1.py        ← Stage 1 runner
+├── data/
+│   ├── raw/             ← Per-category cached parquet (auto-generated)
+│   ├── processed/       ← train/val/test splits + stats
+│   └── evaluation/      ← Validation reports + eval results
+├── models/
+│   ├── sentiment/       ← DistilBERT + LoRA weights
+│   ├── aspect/          ← RoBERTa + LoRA weights
+│   └── embeddings/      ← FAISS index + ChromaDB
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_model_training.ipynb
+│   └── 03_evaluation.ipynb
+├── src/
+│   ├── utils.py         ← Config, logger, seed, device
+│   ├── data/
+│   │   ├── loader.py         ← HuggingFace download + splitting
+│   │   ├── preprocessor.py   ← Text cleaning + validation
+│   │   ├── dataloader.py     ← PyTorch Dataset + DataLoader
+│   │   └── visualise.py      ← Stats plots
+│   ├── models/
+│   │   ├── sentiment.py      ← DistilBERT + LoRA fine-tuning
+│   │   ├── aspect.py         ← RoBERTa + LoRA fine-tuning
+│   │   └── topics.py         ← BERTopic
+│   ├── retrieval/
+│   │   ├── embeddings.py     ← Embedding generation + indexing
+│   │   ├── search.py         ← FAISS + ChromaDB search
+│   │   └── reranker.py       ← Cross-encoder reranking
+│   ├── insights/
+│   │   ├── summariser.py     ← Cluster summarisation
+│   │   ├── trends.py         ← Trend detection
+│   │   └── reports.py        ← Weekly report generation
+│   └── evaluation/
+│       ├── metrics.py        ← All eval metrics
+│       └── regression.py     ← Regression testing
+└── dashboard/
+    ├── app.py
+    └── pages/
+        ├── overview.py
+        ├── search.py
+        ├── topics.py
+        ├── insights.py
+        └── performance.py
+```
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Core ML | PyTorch 2.2, Transformers 4.40 |
+| Fine-tuning | PEFT/LoRA (parameter-efficient) |
+| Embeddings | sentence-transformers (all-MiniLM-L6-v2) |
+| Topic modelling | BERTopic |
+| Vector search | FAISS + ChromaDB |
+| LLM | Groq API — Llama 3 8B |
+| Evaluation | scikit-learn metrics |
+| Dashboard | Streamlit |
+| Data | HuggingFace datasets |
+
+---
+
+## Hardware
+
+Designed for **CPU / Apple Silicon (MPS)** — no GPU required.
+
+Device auto-detection order: CUDA → MPS → CPU.
+
+LoRA reduces trainable parameters to ~1% of full model, making training feasible on a standard laptop.
+
+---
+
+## Results (Stage 2 — populated after training)
+
+| Model | Metric | Score |
+|-------|--------|-------|
+| Sentiment (DistilBERT + LoRA) | F1 weighted | TBD |
+| Aspect (RoBERTa + LoRA) | Micro F1 | TBD |
+| Retrieval | MRR@10 | TBD |
+| LLM insights | Avg rubric score | TBD |

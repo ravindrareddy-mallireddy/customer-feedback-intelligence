@@ -1,0 +1,33 @@
+{
+  "null_rates_pct": {
+    "text": 0.0,
+    "rating": 0.0,
+    "title": 0.0,
+    "parent_asin": 0.0,
+    "timestamp": 100.0,
+    "category": 0.0,
+    "sentiment": 0.0,
+    "sentiment_label": 0.0,
+    "date": 100.0
+  },
+  "sentiment_distribution": {
+    "negative": 0.5099,
+    "positive": 0.4901
+  },
+  "text_length": {
+    "min": 55,
+    "max": 1002,
+    "mean": 412.1,
+    "p25": 213,
+    "p50": 363,
+    "p75": 576
+  },
+  "category_distribution": {
+    "Home_and_Kitchen": 3714,
+    "Clothing_Shoes_and_Jewelry": 3640,
+    "Sports_and_Outdoors": 3637,
+    "Electronics": 3610,
+    "Books": 3587
+  },
+  "total_rows": 18188
+}
