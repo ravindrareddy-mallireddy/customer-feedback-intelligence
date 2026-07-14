@@ -5,17 +5,17 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 st.set_page_config(
     page_title="Customer Feedback Intelligence",
-    page_icon="🧠",
+    page_page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 @st.cache_resource
-def load_all_models():
+def load_core_models():
+    """Load only sentiment, aspect and retrieval - skip heavy topic model."""
     from src.utils import load_config
     from src.models.sentiment import SentimentClassifier
     from src.models.aspect import AspectClassifier
-    from src.models.topics import TopicModeler
     from src.retrieval.embeddings import EmbeddingIndexer
     from src.retrieval.search import ReviewSearcher
     from src.retrieval.reranker import Reranker
@@ -23,26 +23,18 @@ def load_all_models():
 
     cfg = load_config("config.yaml")
 
-    # Download models from HuggingFace Hub
-    with st.spinner("Downloading sentiment model from HuggingFace..."):
+    with st.spinner("Downloading sentiment model..."):
         snapshot_download(
             repo_id="rr1371859/customer-feedback-sentiment",
             repo_type="model",
             local_dir="models/sentiment/best"
         )
 
-    with st.spinner("Downloading aspect model from HuggingFace..."):
+    with st.spinner("Downloading aspect model..."):
         snapshot_download(
             repo_id="rr1371859/customer-feedback-aspect",
             repo_type="model",
             local_dir="models/aspect/best"
-        )
-
-    with st.spinner("Downloading topic model from HuggingFace..."):
-        snapshot_download(
-            repo_id="rr1371859/customer-feedback-topics",
-            repo_type="model",
-            local_dir="models/embeddings"
         )
 
     with st.spinner("Loading sentiment model..."):
@@ -55,12 +47,12 @@ def load_all_models():
         aspect.build()
         aspect.load("models/aspect/best")
 
-    with st.spinner("Loading topic model..."):
-        topics = TopicModeler(cfg)
-        topics.build()
-        topics.load()
-
     with st.spinner("Loading retrieval pipeline..."):
+        snapshot_download(
+            repo_id="rr1371859/customer-feedback-topics",
+            repo_type="model",
+            local_dir="models/embeddings"
+        )
         indexer = EmbeddingIndexer(cfg)
         indexer.build()
         indexer.load()
@@ -70,7 +62,7 @@ def load_all_models():
         reranker = Reranker(cfg)
         reranker.build()
 
-    return cfg, sentiment, aspect, topics, indexer, searcher, reranker
+    return cfg, sentiment, aspect, indexer, searcher, reranker
 
 # Sidebar
 st.sidebar.title("🧠 Customer Feedback Intelligence")
@@ -85,9 +77,8 @@ st.sidebar.metric("Sentiment Accuracy", "89.91%")
 st.sidebar.metric("Retrieval MRR", "1.00")
 st.sidebar.metric("Reviews Indexed", "18,188")
 
-# Load models
-models = load_all_models()
-cfg, sentiment_clf, aspect_clf, topic_modeler, indexer, searcher, reranker = models
+# Load core models
+cfg, sentiment_clf, aspect_clf, indexer, searcher, reranker = load_core_models()
 
 # Route pages
 if page == "📊 Overview":
@@ -101,7 +92,7 @@ elif page == "🏷️ Analyze Review":
     analyze.render(cfg, sentiment_clf, aspect_clf)
 elif page == "📈 Topics":
     from dashboard.pages import topics
-    topics.render(cfg, topic_modeler)
+    topics.render(cfg, None)
 elif page == "📝 Insights":
     from dashboard.pages import insights
     insights.render(cfg)

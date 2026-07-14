@@ -5,22 +5,20 @@ import json
 from pathlib import Path
 
 
-def render(cfg, topic_modeler):
+def render(cfg, topic_modeler=None):
     st.title("📈 Topic Explorer")
     st.markdown("Explore the 19 topic clusters discovered across 18,188 reviews.")
 
-    # Load topic info
     eval_dir = Path(cfg["data"]["evaluation_dir"])
     topic_info_path = eval_dir / "topic_info.json"
 
     if not topic_info_path.exists():
-        st.error("Topic info not found. Run run_stage2_topics.py first.")
+        st.error("Topic info not found.")
         return
 
     with open(topic_info_path) as f:
         topic_records = json.load(f)
 
-    # Overview metrics
     col1, col2, col3 = st.columns(3)
     col1.metric("Topics Found", len(topic_records))
     col2.metric("Topic Diversity", "0.9579")
@@ -28,7 +26,6 @@ def render(cfg, topic_modeler):
 
     st.markdown("---")
 
-    # Topic size bar chart
     st.subheader("Topic Sizes")
     topic_ids = [f"Topic {r['topic_id']}" for r in topic_records]
     topic_counts = [r["count"] for r in topic_records]
@@ -46,8 +43,6 @@ def render(cfg, topic_modeler):
     st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("---")
-
-    # Topic details
     st.subheader("Topic Details")
     selected_topic = st.selectbox(
         "Select a topic to explore",
@@ -58,7 +53,6 @@ def render(cfg, topic_modeler):
     selected = next(r for r in topic_records if r["topic_id"] == topic_idx)
 
     col1, col2 = st.columns(2)
-
     with col1:
         st.markdown(f"**Reviews in cluster:** {selected['count']}")
         st.markdown("**Top keywords:**")
@@ -66,23 +60,15 @@ def render(cfg, topic_modeler):
             st.markdown(f"{i}. {word}")
 
     with col2:
-        # Word importance chart
         words = selected["top_words"][:8]
         scores = list(range(len(words), 0, -1))
         fig = go.Figure(go.Bar(
-            x=scores,
-            y=words,
-            orientation="h",
+            x=scores, y=words, orientation="h",
             marker_color="#5C6BC0",
         ))
-        fig.update_layout(
-            title="Keyword Importance",
-            xaxis_title="Relative Importance",
-            height=300,
-        )
+        fig.update_layout(title="Keyword Importance", xaxis_title="Relative Importance", height=300)
         st.plotly_chart(fig, use_container_width=True)
 
-    # Load cluster summaries if available
     summaries_path = eval_dir / "cluster_summaries.json"
     if summaries_path.exists():
         with open(summaries_path) as f:
