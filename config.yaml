@@ -54,7 +54,7 @@ models:
       target_modules: ["q_lin", "v_lin"]
 
   aspect:
-    base_model: "roberta-base"
+    base_model: "distilbert-base-uncased"
     save_dir: "models/aspect"
     batch_size: 8
     epochs: 5
@@ -74,7 +74,7 @@ models:
       r: 8
       lora_alpha: 16
       lora_dropout: 0.1
-      target_modules: ["query", "value"]
+      target_modules: ["q_lin", "v_lin"]
 
   topic:
     embedding_model: "all-MiniLM-L6-v2"
