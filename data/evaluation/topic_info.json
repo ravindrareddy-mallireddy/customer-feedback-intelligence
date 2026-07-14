@@ -1,111 +1,111 @@
 [
   {
     "topic_id": 0,
-    "count": 7936,
+    "count": 8025,
     "top_words": [
       "read",
-      "movie",
       "book",
-      "story",
+      "movie",
       "books",
+      "story",
       "reading",
       "film",
       "characters",
       "life",
-      "read book"
+      "written"
     ]
   },
   {
     "topic_id": 1,
-    "count": 1934,
+    "count": 1628,
     "top_words": [
-      "album",
       "cd",
+      "album",
+      "songs",
       "music",
+      "song",
       "band",
-      "sound",
       "listen",
-      "player",
-      "rock",
-      "albums",
-      "listening"
+      "sound",
+      "tracks",
+      "rock"
     ]
   },
   {
     "topic_id": 2,
-    "count": 1150,
+    "count": 1167,
     "top_words": [
       "bed",
-      "air",
-      "comfortable",
       "size",
       "product",
+      "comfortable",
       "wear",
-      "skin",
       "pair",
       "boot",
-      "wearing"
+      "waist",
+      "skin",
+      "air"
     ]
   },
   {
     "topic_id": 3,
-    "count": 726,
+    "count": 953,
     "top_words": [
-      "game",
-      "toy",
-      "games",
-      "play",
-      "graphics",
-      "son",
-      "year old",
-      "fun",
-      "teeth",
-      "playing"
+      "card",
+      "battery",
+      "adapter",
+      "apple",
+      "computer",
+      "hp",
+      "software",
+      "charge",
+      "charging",
+      "power"
     ]
   },
   {
     "topic_id": 4,
-    "count": 676,
+    "count": 738,
     "top_words": [
-      "card",
-      "adapter",
-      "apple",
-      "hp",
-      "battery",
-      "computer",
-      "windows",
-      "cable",
-      "charging",
-      "camera"
+      "game",
+      "toy",
+      "games",
+      "son",
+      "play",
+      "graphics",
+      "year old",
+      "fun",
+      "teeth",
+      "played"
     ]
   },
   {
     "topic_id": 5,
-    "count": 375,
+    "count": 339,
     "top_words": [
       "glasses",
       "food",
       "clean",
       "eat",
       "salt",
-      "handles",
       "warm",
+      "lid",
       "use",
-      "coffee",
-      "taste"
+      "handles",
+      "coffee"
     ]
   },
   {
     "topic_id": 6,
-    "count": 271,
+    "count": 265,
     "top_words": [
       "sand",
       "desk",
       "cake",
       "tool",
       "metal",
-      "bag",
       "frame",
+      "garden",
       "saw",
       "knife",
       "chair"
@@ -113,60 +113,60 @@
   },
   {
     "topic_id": 7,
-    "count": 225,
+    "count": 191,
     "top_words": [
+      "magazine",
       "item",
-      "product",
-      "thanks",
-      "amazon",
-      "arrived",
-      "company",
       "received",
-      "shipping",
-      "order",
-      "color"
+      "seller",
+      "amazon",
+      "shipped",
+      "color",
+      "gift",
+      "company",
+      "thanks"
     ]
   },
   {
     "topic_id": 8,
-    "count": 167,
+    "count": 190,
     "top_words": [
-      "tape",
-      "video",
-      "belly",
-      "workout",
-      "moves",
-      "instruction",
-      "step",
-      "techniques",
-      "beginner",
-      "technique"
+      "ear",
+      "fit",
+      "sizes",
+      "ears",
+      "sound",
+      "hook",
+      "extension",
+      "sound quality",
+      "headphones",
+      "stay"
     ]
   },
   {
     "topic_id": 9,
-    "count": 143,
+    "count": 167,
     "top_words": [
       "camera",
-      "cap",
-      "noise",
+      "cable",
       "sony",
+      "cap",
+      "mount",
+      "noise",
+      "pin",
       "tape",
-      "unit",
-      "tapes",
-      "unacceptable",
-      "light",
-      "receiver"
+      "receiver",
+      "unacceptable"
     ]
   },
   {
     "topic_id": 10,
-    "count": 127,
+    "count": 122,
     "top_words": [
       "bottle",
       "heat",
       "warm",
-      "temperature",
+      "temp",
       "outlet",
       "plug",
       "timer",
@@ -177,23 +177,7 @@
   },
   {
     "topic_id": 11,
-    "count": 114,
-    "top_words": [
-      "ear",
-      "fit",
-      "sizes",
-      "ears",
-      "loop",
-      "stay",
-      "size",
-      "securely",
-      "fits",
-      "comfortable"
-    ]
-  },
-  {
-    "topic_id": 12,
-    "count": 111,
+    "count": 109,
     "top_words": [
       "shower",
       "rod",
@@ -201,90 +185,106 @@
       "water",
       "filter",
       "pressure",
-      "replacement",
-      "drain",
       "plug",
-      "door"
+      "replacement",
+      "door",
+      "removing"
+    ]
+  },
+  {
+    "topic_id": 12,
+    "count": 54,
+    "top_words": [
+      "ring",
+      "cards",
+      "holders",
+      "chain",
+      "silver",
+      "balance",
+      "rings",
+      "card",
+      "stone",
+      "white"
     ]
   },
   {
     "topic_id": 13,
-    "count": 81,
+    "count": 50,
     "top_words": [
       "laptop",
-      "bow",
+      "mouse",
       "keyboard",
-      "cards",
       "pack",
-      "balance",
-      "card",
+      "pad",
       "table",
-      "feels",
-      "pocket"
+      "case",
+      "compartment",
+      "hot",
+      "velcro"
     ]
   },
   {
     "topic_id": 14,
-    "count": 53,
+    "count": 47,
     "top_words": [
-      "dog",
-      "strap",
-      "walk",
-      "training",
-      "pulling",
-      "chewed",
-      "walking",
-      "pull",
-      "mouth",
-      "neck"
+      "diet",
+      "blood",
+      "dr",
+      "disease",
+      "health",
+      "taking",
+      "type",
+      "eating",
+      "advice",
+      "sugar"
     ]
   },
   {
     "topic_id": 15,
-    "count": 48,
+    "count": 45,
     "top_words": [
+      "en",
       "la",
       "del",
       "le",
-      "las",
       "se",
+      "las",
       "mas",
-      "audio",
-      "solo",
       "die",
-      "ai"
+      "ai",
+      "dvd"
     ]
   },
   {
     "topic_id": 16,
-    "count": 46,
+    "count": 27,
     "top_words": [
-      "dr",
-      "blood",
-      "sugar",
-      "disease",
-      "type",
-      "health",
-      "eating",
-      "advice",
-      "cure",
-      "follow"
+      "term",
+      "pictures",
+      "explanations",
+      "wish bought",
+      "reference",
+      "stink",
+      "international",
+      "need use",
+      "lots",
+      "easy"
     ]
   },
   {
     "topic_id": 17,
-    "count": 19,
+    "count": 18,
     "top_words": [
       "improvement",
       "lights",
-      "red",
       "truck",
       "factory",
       "bright",
+      "red",
       "perform",
       "driving",
-      "lighting",
-      "2001"
+      "2001",
+      "cost"
     ]
   },
   {

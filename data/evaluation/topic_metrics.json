@@ -1,7 +1,7 @@
 {
   "n_topics": 19,
-  "outlier_rate": 0.2183,
-  "topic_diversity": 0.9474,
+  "outlier_rate": 0.222,
+  "topic_diversity": 0.9579,
   "total_documents": 18188,
-  "outlier_count": 3970
+  "outlier_count": 4037
 }
