@@ -1,0 +1,87 @@
+[
+  {
+    "query": "battery life is terrible",
+    "top_results": [
+      {
+        "text": "The battery I got has a terrible quality. With a full charge over night (~8 hours), the battery only sustained my SD800 IS camera less than 12 hours normal usage, shot around 20 pictures. Versus to th",
+        "rerank_score": 3.2362775802612305
+      },
+      {
+        "text": "If you have ever had an iPod you will kick yourself for buying this player. Replaced my iPod Nano because the battery life was fading. Unfortunately, there is no way to get the advertised 35 hours of ",
+        "rerank_score": 0.8778780102729797
+      },
+      {
+        "text": "If you have ever had an iPod you will kick yourself for buying this player. Replaced my iPod Nano because the battery life was fading. Unfortunately, there is no way to get the advertised 35 hours of ",
+        "rerank_score": 0.8778780102729797
+      }
+    ]
+  },
+  {
+    "query": "great value for money",
+    "top_results": [
+      {
+        "text": "Great value for money. I purchased this DVD for my son as he loves Transformers. Received the DVD before the estimated date and before it was due to be released in Australia.We were only interested in",
+        "rerank_score": 3.5272889137268066
+      },
+      {
+        "text": "Great value for money. I purchased this DVD for my son as he loves Transformers. Received the DVD before the estimated date and before it was due to be released in Australia.We were only interested in",
+        "rerank_score": 3.5272889137268066
+      },
+      {
+        "text": "great transaction.. book is as described and was received on time.. at the given price this was a good value!",
+        "rerank_score": -1.1911218166351318
+      }
+    ]
+  },
+  {
+    "query": "fast delivery but poor packaging",
+    "top_results": [
+      {
+        "text": "Packaging is Ok but not great. Blu-Ray transfers are more than adequate. Fast shipping. There are a few different Blu-Ray collections out there and I am happy I went with this one.",
+        "rerank_score": 2.6759796142578125
+      },
+      {
+        "text": "Packaging is Ok but not great. Blu-Ray transfers are more than adequate. Fast shipping. There are a few different Blu-Ray collections out there and I am happy I went with this one.",
+        "rerank_score": 2.6759796142578125
+      },
+      {
+        "text": "Shipping was fast and packaging great. I was slightly disappointed that this seemed like an I Spy book for a much younger child than my 8 (almost 9 year old son)..... I wish I had known that ahead of ",
+        "rerank_score": 1.1816214323043823
+      }
+    ]
+  },
+  {
+    "query": "customer service was unhelpful",
+    "top_results": [
+      {
+        "text": "Received it broken but when talking to the customer help chat they refunded me ASAP. 110% satisfied with their service..,",
+        "rerank_score": -6.925623893737793
+      },
+      {
+        "text": "Received it broken but when talking to the customer help chat they refunded me ASAP. 110% satisfied with their service..,",
+        "rerank_score": -6.925623893737793
+      },
+      {
+        "text": "Despite the many reviews from folks who had to return one or more Sansa Views before getting a functional one, I figured the manufacturer must have cleared up their quality problems to stay in the mar",
+        "rerank_score": -8.43899917602539
+      }
+    ]
+  },
+  {
+    "query": "easy to use and setup",
+    "top_results": [
+      {
+        "text": "Installation and use was easy and good. But the quality of the product was really bad and it was going loose and stopped working in between.",
+        "rerank_score": 3.7922768592834473
+      },
+      {
+        "text": "This is my first digital camcorder. As a first timer its very easy to use which I liked most. without the tape i hooked to my Sony VIAO PC and within 10 minutes I made a small movie. the setup is so e",
+        "rerank_score": 3.058706760406494
+      },
+      {
+        "text": "This product is a good idea. However, the software is not easy to use. Unless you have a very powerful PC, and get installation right the first time, you'll be in trouble. Included documentation is of",
+        "rerank_score": 1.503218173980713
+      }
+    ]
+  }
+]
