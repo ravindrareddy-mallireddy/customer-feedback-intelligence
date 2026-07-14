@@ -5,14 +5,13 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 st.set_page_config(
     page_title="Customer Feedback Intelligence",
-    page_page_icon="🧠",
+    page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 @st.cache_resource
 def load_core_models():
-    """Load only sentiment, aspect and retrieval - skip heavy topic model."""
     from src.utils import load_config
     from src.models.sentiment import SentimentClassifier
     from src.models.aspect import AspectClassifier
@@ -24,18 +23,16 @@ def load_core_models():
     cfg = load_config("config.yaml")
 
     with st.spinner("Downloading sentiment model..."):
-        snapshot_download(
-            repo_id="rr1371859/customer-feedback-sentiment",
-            repo_type="model",
-            local_dir="models/sentiment/best"
-        )
+        snapshot_download(repo_id="rr1371859/customer-feedback-sentiment",
+            repo_type="model", local_dir="models/sentiment/best")
 
     with st.spinner("Downloading aspect model..."):
-        snapshot_download(
-            repo_id="rr1371859/customer-feedback-aspect",
-            repo_type="model",
-            local_dir="models/aspect/best"
-        )
+        snapshot_download(repo_id="rr1371859/customer-feedback-aspect",
+            repo_type="model", local_dir="models/aspect/best")
+
+    with st.spinner("Downloading retrieval index..."):
+        snapshot_download(repo_id="rr1371859/customer-feedback-topics",
+            repo_type="model", local_dir="models/embeddings")
 
     with st.spinner("Loading sentiment model..."):
         sentiment = SentimentClassifier(cfg)
@@ -48,11 +45,6 @@ def load_core_models():
         aspect.load("models/aspect/best")
 
     with st.spinner("Loading retrieval pipeline..."):
-        snapshot_download(
-            repo_id="rr1371859/customer-feedback-topics",
-            repo_type="model",
-            local_dir="models/embeddings"
-        )
         indexer = EmbeddingIndexer(cfg)
         indexer.build()
         indexer.load()
@@ -64,23 +56,18 @@ def load_core_models():
 
     return cfg, sentiment, aspect, indexer, searcher, reranker
 
-# Sidebar
 st.sidebar.title("🧠 Customer Feedback Intelligence")
 st.sidebar.markdown("---")
-page = st.sidebar.radio(
-    "Navigate",
-    ["📊 Overview", "🔍 Search", "🏷️ Analyze Review", "📈 Topics", "📝 Insights"]
-)
+page = st.sidebar.radio("Navigate",
+    ["📊 Overview", "🔍 Search", "🏷️ Analyze Review", "📈 Topics", "📝 Insights"])
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Model Performance**")
 st.sidebar.metric("Sentiment Accuracy", "89.91%")
 st.sidebar.metric("Retrieval MRR", "1.00")
 st.sidebar.metric("Reviews Indexed", "18,188")
 
-# Load core models
 cfg, sentiment_clf, aspect_clf, indexer, searcher, reranker = load_core_models()
 
-# Route pages
 if page == "📊 Overview":
     from dashboard.pages import overview
     overview.render(cfg)
