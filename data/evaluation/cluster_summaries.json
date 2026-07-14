@@ -1,0 +1,540 @@
+[
+  {
+    "summary": "Customers are expressing mixed opinions about the book, with some praising its content and others criticizing its quality and presentation. The main issues revolve around poor editing, dumbed-down content, and unlikable characters. Overall, the sentiment is split between positive and negative reviews.",
+    "key_issues": [
+      "Poor editing and quality control",
+      "Dumbed-down content and lack of depth",
+      "Unlikable characters and character development"
+    ],
+    "recommendations": [
+      "Improve editing and quality control to ensure accuracy and professionalism",
+      "Provide more in-depth content and analysis to cater to a wider range of readers"
+    ],
+    "sentiment_label": "mixed",
+    "topic_id": 0,
+    "topic_words": [
+      "read",
+      "book",
+      "movie",
+      "books",
+      "story",
+      "reading",
+      "film",
+      "characters"
+    ],
+    "sentiment_distribution": {
+      "positive": 3666,
+      "negative": 3626
+    }
+  },
+  {
+    "summary": "Customers are generally satisfied with the music content, with many praising the quality and nostalgia of the albums, but some express disappointment with the sound quality or artist choices.",
+    "key_issues": [
+      "Sound quality",
+      "Artist choices",
+      "Expectation vs. reality"
+    ],
+    "recommendations": [
+      "Improve sound quality for a more immersive listening experience",
+      "Clearly communicate artist involvement in the album"
+    ],
+    "sentiment_label": "positive",
+    "topic_id": 1,
+    "topic_words": [
+      "cd",
+      "album",
+      "songs",
+      "music",
+      "song",
+      "band",
+      "listen",
+      "sound"
+    ],
+    "sentiment_distribution": {
+      "positive": 936,
+      "negative": 553
+    }
+  },
+  {
+    "summary": "Customers are generally dissatisfied with the products, citing issues with durability, comfort, and design. Some customers have found the products to be comfortable and easy to use, but these positive experiences are outnumbered by negative ones. Overall, customers are looking for more reliable and comfortable products.",
+    "key_issues": [
+      "Durability issues",
+      "Comfort concerns",
+      "Design flaws"
+    ],
+    "recommendations": [
+      "Improve product durability and lifespan",
+      "Enhance comfort features and design",
+      "Provide better customer support and warranty options"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 2,
+    "topic_words": [
+      "bed",
+      "size",
+      "product",
+      "comfortable",
+      "wear",
+      "pair",
+      "boot",
+      "waist"
+    ],
+    "sentiment_distribution": {
+      "negative": 553,
+      "positive": 467
+    }
+  },
+  {
+    "summary": "Customers are expressing disappointment with the product's reliability and durability, citing issues with water damage, rust, and faulty charging. Some users have experienced minor issues, but most have significant problems. The product's quality and value are being questioned.",
+    "key_issues": [
+      "Water damage and rust",
+      "Faulty charging and reliability",
+      "Poor quality and value"
+    ],
+    "recommendations": [
+      "Improve product design and materials to prevent water damage and rust",
+      "Enhance product testing to ensure reliability and quality"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 3,
+    "topic_words": [
+      "card",
+      "battery",
+      "adapter",
+      "apple",
+      "computer",
+      "hp",
+      "software",
+      "charge"
+    ],
+    "sentiment_distribution": {
+      "negative": 609,
+      "positive": 299
+    }
+  },
+  {
+    "summary": "Customers are expressing frustration with the toy's assembly and functionality, particularly with regards to durability and ease of use. Many reviewers have experienced issues with the toy falling apart or not working as intended. This has resulted in a negative sentiment towards the product.",
+    "key_issues": [
+      "Difficulty in assembly",
+      "Durability issues",
+      "Functionality problems"
+    ],
+    "recommendations": [
+      "Improve the assembly process to reduce frustration for customers",
+      "Enhance the toy's durability to prevent it from falling apart"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 4,
+    "topic_words": [
+      "game",
+      "toy",
+      "games",
+      "son",
+      "play",
+      "graphics",
+      "year old",
+      "fun"
+    ],
+    "sentiment_distribution": {
+      "negative": 405,
+      "positive": 278
+    }
+  },
+  {
+    "summary": "Customers are generally dissatisfied with the product, citing issues with recipes, suggestions, and product quality. Some customers have found specific products, such as the Sassy Baby warming dishes, to be useful and easy to clean. However, the overall sentiment is negative due to the prevalence of complaints.",
+    "key_issues": [
+      "Poor recipe suggestions and lack of ease in following them",
+      "Product quality issues, including cracking and poor durability",
+      "Inaccurate or misleading information in product descriptions or instructions"
+    ],
+    "recommendations": [
+      "Improve recipe suggestions and instructions to make them easier to follow",
+      "Enhance product quality to prevent cracking and other durability issues"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 5,
+    "topic_words": [
+      "glasses",
+      "food",
+      "clean",
+      "eat",
+      "salt",
+      "warm",
+      "lid",
+      "use"
+    ],
+    "sentiment_distribution": {
+      "negative": 171,
+      "positive": 135
+    }
+  },
+  {
+    "summary": "Customers are expressing frustration with product quality, citing issues with screws shearing off, drill bits wearing down, and poor instructions. They also mention some positive experiences with products, such as the kids' desk and Fiskar scissors. However, these positive reviews are outnumbered by the negative ones.",
+    "key_issues": [
+      "poor product quality",
+      "inadequate instructions",
+      "incompatibility with certain materials"
+    ],
+    "recommendations": [
+      "improve product design and materials",
+      "enhance instruction manual clarity",
+      "increase product testing for compatibility"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 6,
+    "topic_words": [
+      "sand",
+      "desk",
+      "cake",
+      "tool",
+      "metal",
+      "frame",
+      "garden",
+      "saw"
+    ],
+    "sentiment_distribution": {
+      "negative": 155,
+      "positive": 97
+    }
+  },
+  {
+    "summary": "Customers are generally dissatisfied with their purchases, citing issues with price, delivery time, and content quality. Some customers have received their items promptly and in good condition, but these positive experiences are outnumbered by negative ones. Overall, customers are expressing frustration with the seller and Amazon's shipping practices.",
+    "key_issues": [
+      "Delayed or excessive delivery times",
+      "High prices compared to in-store options",
+      "Low content quality and high ad-to-article ratio in magazines"
+    ],
+    "recommendations": [
+      "Improve delivery times and provide more transparent shipping estimates",
+      "Offer competitive pricing and consider offering discounts for bulk purchases"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 7,
+    "topic_words": [
+      "magazine",
+      "item",
+      "received",
+      "seller",
+      "amazon",
+      "shipped",
+      "color",
+      "gift"
+    ],
+    "sentiment_distribution": {
+      "negative": 106,
+      "positive": 56
+    }
+  },
+  {
+    "summary": "Customers are generally dissatisfied with the product's fit and consistency, but some appreciate its functionality and value for money. The product's ability to extend the reach of headphones is a redeeming quality, but the inconsistent sizing and poor fit are major drawbacks. Overall, the product falls short of expectations.",
+    "key_issues": [
+      "Inconsistent sizing",
+      "Poor fit",
+      "Lack of consistency in ear gel sizes"
+    ],
+    "recommendations": [
+      "Improve sizing consistency and provide more accurate size options",
+      "Enhance the fit of the product to prevent slipping and discomfort"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 8,
+    "topic_words": [
+      "ear",
+      "fit",
+      "sizes",
+      "ears",
+      "sound",
+      "hook",
+      "extension",
+      "sound quality"
+    ],
+    "sentiment_distribution": {
+      "negative": 93,
+      "positive": 78
+    }
+  },
+  {
+    "summary": "Customers are expressing frustration with products related to cameras and cables, citing issues with compatibility, durability, and performance. Some customers have had positive experiences with specific products, such as lens caps. Overall, the sentiment is negative due to the prevalence of complaints.",
+    "key_issues": [
+      "Compatibility issues with Sony camcorders and Windows XP",
+      "Durability and reliability problems with camera equipment",
+      "Poor build quality and inconsistent performance"
+    ],
+    "recommendations": [
+      "Improve compatibility with a wider range of devices and operating systems",
+      "Enhance durability and reliability through design and materials improvements"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 9,
+    "topic_words": [
+      "camera",
+      "cable",
+      "sony",
+      "cap",
+      "mount",
+      "noise",
+      "pin",
+      "tape"
+    ],
+    "sentiment_distribution": {
+      "negative": 80,
+      "positive": 56
+    }
+  },
+  {
+    "summary": "Customers are generally dissatisfied with the product's performance, citing issues with heat, safety, and durability. Some users have reported the product malfunctioning or detaching, while others have experienced burning smells or no functionality at all. However, a few customers have had positive experiences with the product's performance in specific use cases.",
+    "key_issues": [
+      "Malfunctioning or detaching",
+      "Safety concerns (burning smells)",
+      "Durability issues"
+    ],
+    "recommendations": [
+      "Improve product design and durability",
+      "Enhance safety features and testing"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 10,
+    "topic_words": [
+      "bottle",
+      "heat",
+      "warm",
+      "temp",
+      "outlet",
+      "plug",
+      "timer",
+      "unit"
+    ],
+    "sentiment_distribution": {
+      "negative": 66,
+      "positive": 47
+    }
+  },
+  {
+    "summary": "Customers are generally satisfied with the products, but some issues arise with product quality, installation, and design limitations. The main concerns are related to product performance, installation difficulties, and product not meeting customer expectations. Overall, customers appreciate the ease of installation and good value for money.",
+    "key_issues": [
+      "Product quality and durability issues",
+      "Installation difficulties and design limitations",
+      "Product not meeting customer expectations"
+    ],
+    "recommendations": [
+      "Improve product quality and durability",
+      "Enhance product design to cater to customer preferences",
+      "Provide clear product descriptions and images"
+    ],
+    "sentiment_label": "mixed",
+    "topic_id": 11,
+    "topic_words": [
+      "shower",
+      "rod",
+      "mirror",
+      "water",
+      "filter",
+      "pressure",
+      "plug",
+      "replacement"
+    ],
+    "sentiment_distribution": {
+      "positive": 59,
+      "negative": 43
+    }
+  },
+  {
+    "summary": "Customers are generally satisfied with the products, particularly with their functionality and design. However, some customers have experienced issues with durability and ease of use. Overall, the products seem to be well-received by customers.",
+    "key_issues": [
+      "Durability issues with thin and bendable materials",
+      "Size limitations for certain applications",
+      "Difficulty with engraving or customization"
+    ],
+    "recommendations": [
+      "Improve material quality to enhance durability",
+      "Offer a range of sizes to cater to different customer needs",
+      "Simplify the engraving or customization process"
+    ],
+    "sentiment_label": "positive",
+    "topic_id": 12,
+    "topic_words": [
+      "ring",
+      "cards",
+      "holders",
+      "chain",
+      "silver",
+      "balance",
+      "rings",
+      "card"
+    ],
+    "sentiment_distribution": {
+      "positive": 37,
+      "negative": 13
+    }
+  },
+  {
+    "summary": "Customers are generally satisfied with the products but have concerns about design and functionality, particularly with regards to protection, carrying, and usability. Some products have been found to be flimsy or inconvenient to use. Overall, customers are looking for more robust and user-friendly designs.",
+    "key_issues": [
+      "Design and functionality issues",
+      "Flimsy or low-quality materials",
+      "Inconvenient or difficult to use"
+    ],
+    "recommendations": [
+      "Improve product design to address customer concerns",
+      "Enhance product materials to make them more robust and durable"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 13,
+    "topic_words": [
+      "laptop",
+      "mouse",
+      "keyboard",
+      "pack",
+      "pad",
+      "table",
+      "case",
+      "compartment"
+    ],
+    "sentiment_distribution": {
+      "positive": 32,
+      "negative": 21
+    }
+  },
+  {
+    "summary": "Customers are discussing the effectiveness of a diet in managing or preventing Type 2 diabetes, with some experiencing positive results and others expressing negative opinions about the approach.",
+    "key_issues": [
+      "Effectiveness of the diet in managing Type 2 diabetes",
+      "Potential negative side effects of the diet",
+      "Lack of personal experience or expertise in the field"
+    ],
+    "recommendations": [
+      "Consider consulting a healthcare professional before making significant changes to one's diet",
+      "Be cautious of diets that promise quick fixes or miraculous results"
+    ],
+    "sentiment_label": "mixed",
+    "topic_id": 14,
+    "topic_words": [
+      "diet",
+      "blood",
+      "dr",
+      "disease",
+      "health",
+      "taking",
+      "type",
+      "eating"
+    ],
+    "sentiment_distribution": {
+      "positive": 26,
+      "negative": 15
+    }
+  },
+  {
+    "summary": "Customers are generally satisfied with the products, praising their quality and value. However, some reviewers have experienced issues with shipping and product content. Overall, customers are seeking informative and engaging content.",
+    "key_issues": [
+      "shipping issues",
+      "product content",
+      "quality"
+    ],
+    "recommendations": [
+      "Improve shipping times and reliability",
+      "Enhance product content to meet customer expectations",
+      "Maintain high-quality products"
+    ],
+    "sentiment_label": "positive",
+    "topic_id": 15,
+    "topic_words": [
+      "en",
+      "la",
+      "del",
+      "le",
+      "se",
+      "las",
+      "mas",
+      "die"
+    ],
+    "sentiment_distribution": {
+      "positive": 30,
+      "negative": 10
+    }
+  },
+  {
+    "summary": "Customers are generally satisfied with the product, praising its ease of use and helpfulness in understanding medical terminology. However, some customers have experienced issues with damaged products or prefer other reference materials. Overall, the product is a valuable resource for medical students and professionals.",
+    "key_issues": [
+      "Damaged products",
+      "Prefer other reference materials",
+      "Compressed size and explanations"
+    ],
+    "recommendations": [
+      "Improve product packaging to prevent damage",
+      "Consider offering alternative reference materials",
+      "Enhance explanations for better understanding"
+    ],
+    "sentiment_label": "positive",
+    "topic_id": 16,
+    "topic_words": [
+      "term",
+      "pictures",
+      "explanations",
+      "wish bought",
+      "reference",
+      "stink",
+      "international",
+      "need use"
+    ],
+    "sentiment_distribution": {
+      "positive": 19,
+      "negative": 7
+    }
+  },
+  {
+    "summary": "Customers are generally dissatisfied with the product, citing issues with brightness and color consistency. Some users find the bulbs too bright, while others experience a reddish tint. Despite this, a few customers appreciate the improved lighting and value for money.",
+    "key_issues": [
+      "Brightness issues: bulbs too bright or too dim",
+      "Color consistency: bulbs not producing enough red light",
+      "Value for money: some customers feel the product is cheap but not worth it"
+    ],
+    "recommendations": [
+      "Improve color consistency by adjusting the bulb's color temperature",
+      "Offer a range of brightness options to cater to different user preferences"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 17,
+    "topic_words": [
+      "improvement",
+      "lights",
+      "truck",
+      "factory",
+      "bright",
+      "red",
+      "perform",
+      "driving"
+    ],
+    "sentiment_distribution": {
+      "negative": 9,
+      "positive": 6
+    }
+  },
+  {
+    "summary": "Customers are extremely dissatisfied with the product, citing issues with quality, durability, and performance. The product's design and materials seem to be inferior to those of the same product from their childhood. This has led to a disappointing experience for both the customers and the children they purchased the product for.",
+    "key_issues": [
+      "Defective product out of the box",
+      "Poor quality and durability",
+      "Inadequate performance"
+    ],
+    "recommendations": [
+      "Improve product design and materials",
+      "Enhance quality control to prevent defective products",
+      "Increase testing to ensure product performance meets customer expectations"
+    ],
+    "sentiment_label": "negative",
+    "topic_id": 18,
+    "topic_words": [
+      "snapped",
+      "kid",
+      "lock",
+      "water",
+      "mount",
+      "holds",
+      "defective",
+      "ring"
+    ],
+    "sentiment_distribution": {
+      "negative": 15
+    }
+  }
+]
