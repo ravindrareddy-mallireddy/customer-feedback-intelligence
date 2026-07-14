@@ -1,5 +1,4 @@
-# Model weights
-models/
+# Model weights only - not source code
 
 # Raw and processed data
 data/raw/
