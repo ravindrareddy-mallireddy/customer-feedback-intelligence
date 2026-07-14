@@ -5,8 +5,10 @@ from pathlib import Path
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from bertopic import BERTopic
+from bertopic.vectorizers import ClassTfidfTransformer
 from umap import UMAP
 from hdbscan import HDBSCAN
+from sklearn.feature_extraction.text import CountVectorizer
 from src.utils import get_logger
 
 
@@ -34,15 +36,24 @@ class TopicModeler:
             metric="euclidean", cluster_selection_method="eom",
             prediction_data=True,
         )
+        # Stopword removal for meaningful topic words
+        vectorizer = CountVectorizer(
+            stop_words="english",
+            min_df=5,
+            ngram_range=(1, 2),
+        )
+        ctfidf = ClassTfidfTransformer(reduce_frequent_words=True)
         self.topic_model = BERTopic(
             embedding_model=self.embedding_model,
             umap_model=umap_model,
             hdbscan_model=hdbscan_model,
+            vectorizer_model=vectorizer,
+            ctfidf_model=ctfidf,
             nr_topics=self.topic_cfg["num_topics"],
             top_n_words=10,
             verbose=True,
         )
-        self.logger.info("BERTopic configured.")
+        self.logger.info("BERTopic configured with stopword removal.")
 
     def fit(self, texts):
         self.logger.info("Generating embeddings for %d texts ...", len(texts))
