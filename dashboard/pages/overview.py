@@ -21,6 +21,9 @@ def render(cfg):
         st.write("Available dirs:", list(Path(".").iterdir()))
         return
 
+    import os
+    st.write("Working dir:", os.getcwd())
+    st.write("Data dir exists:", Path(cfg["data"]["processed_dir"]).exists())
     st.markdown("Summary of 18,188 Amazon product reviews across 5 categories.")
 
     train_df = pd.read_parquet(processed_dir / "train.parquet")
