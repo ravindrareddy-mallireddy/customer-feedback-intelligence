@@ -156,7 +156,3 @@ Ravindra Reddy Mallireddy
 MSc Applied AI and Data Science, Southampton Solent University (Distinction, 79.6%)
 GitHub: https://github.com/ravindrareddy-mallireddy
 LinkedIn: https://linkedin.com/in/ravindrareddy-mallireddy
-"""
-with open('README.md', 'w') as f:
-    f.write(content)
-print('Done')
