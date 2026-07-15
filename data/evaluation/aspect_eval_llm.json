@@ -1,0 +1,13 @@
+{
+  "f1_micro": 0.1906,
+  "f1_macro": 0.1468,
+  "hamming_loss": 0.3832,
+  "per_aspect_f1": {
+    "price": 0.2578,
+    "quality": 0.2844,
+    "delivery": 0.2094,
+    "customer_service": 0.1232,
+    "packaging": 0.0,
+    "usability": 0.0058
+  }
+}
