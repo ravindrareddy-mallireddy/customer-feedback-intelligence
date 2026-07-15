@@ -1,30 +1,21 @@
+import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 from pathlib import Path
 import json
-import os
 
 
 def render(cfg):
     st.title("📊 Customer Feedback Overview")
-    
-    # Debug - show current directory
-    st.write("Working dir:", os.getcwd())
-    st.write("Data dir exists:", Path(cfg["data"]["processed_dir"]).exists())
-    st.write("Eval dir exists:", Path(cfg["data"]["evaluation_dir"]).exists())
-    
-    processed_dir = Path(cfg["data"]["processed_dir"])
-    if not processed_dir.exists():
-        st.error(f"Data directory not found: {processed_dir}")
-        st.write("Available dirs:", list(Path(".").iterdir()))
-        return
-
-    import os
-    st.write("Working dir:", os.getcwd())
-    st.write("Data dir exists:", Path(cfg["data"]["processed_dir"]).exists())
     st.markdown("Summary of 18,188 Amazon product reviews across 5 categories.")
+
+    processed_dir = Path(cfg["data"]["processed_dir"])
+    eval_dir = Path(cfg["data"]["evaluation_dir"])
+
+    if not processed_dir.exists():
+        st.error(f"Data not found: {processed_dir} (cwd={os.getcwd()})")
+        return
 
     train_df = pd.read_parquet(processed_dir / "train.parquet")
     val_df   = pd.read_parquet(processed_dir / "val.parquet")
@@ -73,17 +64,17 @@ def render(cfg):
         st.metric("F1 Macro", "0.3201")
         st.metric("Aspects", "6")
     with col3:
-        st.markdown("**Retrieval Pipeline (FAISS + Reranker)**")
+        st.markdown("**Retrieval Pipeline**")
         st.metric("MRR", "1.0000")
         st.metric("Hit Rate @5", "1.0000")
         st.metric("Latency P50", "215ms")
 
     st.markdown("---")
     st.subheader("Latest Weekly Report")
-    report_path = Path(cfg["data"]["evaluation_dir"]) / "weekly_report.md"
+    report_path = eval_dir / "weekly_report.md"
     if report_path.exists():
         with open(report_path) as f:
             report = f.read()
         st.markdown(report)
     else:
-        st.warning(f"Weekly report not found at {report_path}")
+        st.warning(f"Report not found: {report_path}")
