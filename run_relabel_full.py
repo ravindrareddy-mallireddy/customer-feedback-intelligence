@@ -28,11 +28,20 @@ def main():
     # Label train with LLM
     train_labeled_path = processed_dir / "train_llm_batch_labeled.parquet"
     if train_labeled_path.exists():
-        logger.info("Found existing LLM labels - loading.")
-        train_labeled = pd.read_parquet(train_labeled_path)
+        existing = pd.read_parquet(train_labeled_path)
+        if len(existing) >= len(train_df):
+            logger.info("Found complete LLM labels - loading.")
+            train_labeled = existing
+        else:
+            logger.info("Found partial labels (%d/%d) - resuming.", len(existing), len(train_df))
+            remaining = train_df.iloc[len(existing):].reset_index(drop=True)
+            labeler = BatchLLMAspectLabeler(cfg, batch_size=5)
+            new_labels = labeler.label_dataframe(remaining, save_path=None)
+            train_labeled = pd.concat([existing, new_labels], ignore_index=True)
+            train_labeled.to_parquet(train_labeled_path, index=False)
     else:
         logger.info("Starting batch LLM labeling ...")
-        labeler = BatchLLMAspectLabeler(cfg, batch_size=20)
+        labeler = BatchLLMAspectLabeler(cfg, batch_size=5)
         train_labeled = labeler.label_dataframe(
             train_df, save_path=str(train_labeled_path)
         )
@@ -42,7 +51,7 @@ def main():
     if val_labeled_path.exists():
         val_labeled = pd.read_parquet(val_labeled_path)
     else:
-        labeler = BatchLLMAspectLabeler(cfg, batch_size=20)
+        labeler = BatchLLMAspectLabeler(cfg, batch_size=5)
         val_labeled = labeler.label_dataframe(
             val_df, save_path=str(val_labeled_path)
         )
@@ -51,7 +60,7 @@ def main():
     if test_labeled_path.exists():
         test_labeled = pd.read_parquet(test_labeled_path)
     else:
-        labeler = BatchLLMAspectLabeler(cfg, batch_size=20)
+        labeler = BatchLLMAspectLabeler(cfg, batch_size=5)
         test_labeled = labeler.label_dataframe(
             test_df, save_path=str(test_labeled_path)
         )

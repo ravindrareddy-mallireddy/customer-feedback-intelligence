@@ -95,7 +95,7 @@ Respond ONLY with a valid JSON array, one object per review, no other text:
                 for _, row in fallback.iterrows():
                     all_labels.append({k: int(row[k]) for k in self.ASPECTS})
 
-            time.sleep(2.1)
+            time.sleep(0.5)
 
         labels_df = pd.DataFrame(all_labels)
         result = pd.concat([df.reset_index(drop=True), labels_df], axis=1)
