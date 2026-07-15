@@ -11,12 +11,10 @@ st.set_page_config(
 )
 
 @st.cache_resource
-def load_core_models():
+def load_models_only():
     from src.utils import load_config
     from src.models.sentiment import SentimentClassifier
     from src.models.aspect import AspectClassifier
-    from src.retrieval.embeddings import EmbeddingIndexer
-    from src.retrieval.reranker import Reranker
     from huggingface_hub import snapshot_download
 
     cfg = load_config("config.yaml")
@@ -29,10 +27,6 @@ def load_core_models():
         snapshot_download(repo_id="rr1371859/customer-feedback-aspect",
             repo_type="model", local_dir="models/aspect/best")
 
-    with st.spinner("Downloading retrieval index..."):
-        snapshot_download(repo_id="rr1371859/customer-feedback-topics",
-            repo_type="model", local_dir="models/embeddings")
-
     with st.spinner("Loading sentiment model..."):
         sentiment = SentimentClassifier(cfg)
         sentiment.build()
@@ -43,30 +37,40 @@ def load_core_models():
         aspect.build()
         aspect.load("models/aspect/best")
 
-    with st.spinner("Loading embeddings..."):
-        indexer = EmbeddingIndexer(cfg)
-        indexer.build()
-        indexer.load()
+    return cfg, sentiment, aspect
+
+@st.cache_resource
+def load_search():
+    from src.utils import load_config
+    from src.retrieval.embeddings import EmbeddingIndexer
+    from src.retrieval.search import ReviewSearcher
+    from src.retrieval.reranker import Reranker
+    from huggingface_hub import snapshot_download
+
+    cfg = load_config("config.yaml")
+
+    with st.spinner("Downloading retrieval index..."):
+        snapshot_download(repo_id="rr1371859/customer-feedback-topics",
+            repo_type="model", local_dir="models/embeddings")
+
+    indexer = EmbeddingIndexer(cfg)
+    indexer.build()
+    indexer.load()
 
     reranker = Reranker(cfg)
     reranker.build()
 
-    # Try loading search backends - may not exist on cloud
     searcher = None
     try:
         from src.retrieval.search import ReviewSearcher
         faiss_path = Path(cfg["retrieval"]["faiss_index_path"])
-        chroma_dir = Path(cfg["retrieval"]["chroma_persist_dir"])
-        if faiss_path.exists() or chroma_dir.exists():
+        if faiss_path.exists():
             searcher = ReviewSearcher(cfg)
-            if faiss_path.exists():
-                searcher.load_faiss(indexer.metadata)
-            if chroma_dir.exists():
-                searcher.load_chroma()
+            searcher.load_faiss(indexer.metadata)
     except Exception as e:
         st.warning(f"Search index not available: {e}")
 
-    return cfg, sentiment, aspect, indexer, searcher, reranker
+    return cfg, indexer, searcher, reranker
 
 st.sidebar.title("🧠 Customer Feedback Intelligence")
 st.sidebar.markdown("---")
@@ -78,12 +82,15 @@ st.sidebar.metric("Sentiment Accuracy", "89.91%")
 st.sidebar.metric("Retrieval MRR", "1.00")
 st.sidebar.metric("Reviews Indexed", "18,188")
 
-cfg, sentiment_clf, aspect_clf, indexer, searcher, reranker = load_core_models()
+# Load only core models at startup
+cfg, sentiment_clf, aspect_clf = load_models_only()
 
 if page == "📊 Overview":
     from dashboard.pages import overview
     overview.render(cfg)
 elif page == "🔍 Search":
+    # Load search only when needed
+    cfg, indexer, searcher, reranker = load_search()
     from dashboard.pages import search
     search.render(cfg, indexer, searcher, reranker)
 elif page == "🏷️ Analyze Review":
