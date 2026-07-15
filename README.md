@@ -156,3 +156,34 @@ Ravindra Reddy Mallireddy
 MSc Applied AI and Data Science, Southampton Solent University (Distinction, 79.6%)
 GitHub: https://github.com/ravindrareddy-mallireddy
 LinkedIn: https://linkedin.com/in/ravindrareddy-mallireddy
+
+---
+
+## Restoring from Backup
+
+All models are stored on HuggingFace Hub. To restore everything from scratch:
+
+```bash
+git clone https://github.com/ravindrareddy-mallireddy/customer-feedback-intelligence.git
+cd customer-feedback-intelligence
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Then restore models:
+
+```python
+from huggingface_hub import snapshot_download, login
+login(token='your_hf_token')
+snapshot_download('rr1371859/customer-feedback-sentiment', repo_type='model', local_dir='models/sentiment/best')
+snapshot_download('rr1371859/customer-feedback-aspect', repo_type='model', local_dir='models/aspect/best')
+snapshot_download('rr1371859/customer-feedback-topics', repo_type='model', local_dir='models/embeddings')
+print('All models restored.')
+```
+
+Then run the dashboard:
+
+```bash
+streamlit run dashboard/app.py
+```
