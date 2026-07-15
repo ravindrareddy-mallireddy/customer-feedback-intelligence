@@ -86,19 +86,19 @@ st.sidebar.metric("Reviews Indexed", "18,188")
 cfg, sentiment_clf, aspect_clf = load_models_only()
 
 if page == "📊 Overview":
-    from dashboard.pages import overview
+    from dashboard.components import overview
     overview.render(cfg)
 elif page == "🔍 Search":
     # Load search only when needed
     cfg, indexer, searcher, reranker = load_search()
-    from dashboard.pages import search
+    from dashboard.components import search
     search.render(cfg, indexer, searcher, reranker)
 elif page == "🏷️ Analyze Review":
-    from dashboard.pages import analyze
+    from dashboard.components import analyze
     analyze.render(cfg, sentiment_clf, aspect_clf)
 elif page == "📈 Topics":
-    from dashboard.pages import topics
+    from dashboard.components import topics
     topics.render(cfg, None)
 elif page == "📝 Insights":
-    from dashboard.pages import insights
+    from dashboard.components import insights
     insights.render(cfg)
