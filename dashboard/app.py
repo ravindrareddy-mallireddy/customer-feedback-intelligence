@@ -16,7 +16,6 @@ def load_core_models():
     from src.models.sentiment import SentimentClassifier
     from src.models.aspect import AspectClassifier
     from src.retrieval.embeddings import EmbeddingIndexer
-    from src.retrieval.search import ReviewSearcher
     from src.retrieval.reranker import Reranker
     from huggingface_hub import snapshot_download
 
@@ -44,15 +43,28 @@ def load_core_models():
         aspect.build()
         aspect.load("models/aspect/best")
 
-    with st.spinner("Loading retrieval pipeline..."):
+    with st.spinner("Loading embeddings..."):
         indexer = EmbeddingIndexer(cfg)
         indexer.build()
         indexer.load()
-        searcher = ReviewSearcher(cfg)
-        searcher.load_faiss(indexer.metadata)
-        searcher.load_chroma()
-        reranker = Reranker(cfg)
-        reranker.build()
+
+    reranker = Reranker(cfg)
+    reranker.build()
+
+    # Try loading search backends - may not exist on cloud
+    searcher = None
+    try:
+        from src.retrieval.search import ReviewSearcher
+        faiss_path = Path(cfg["retrieval"]["faiss_index_path"])
+        chroma_dir = Path(cfg["retrieval"]["chroma_persist_dir"])
+        if faiss_path.exists() or chroma_dir.exists():
+            searcher = ReviewSearcher(cfg)
+            if faiss_path.exists():
+                searcher.load_faiss(indexer.metadata)
+            if chroma_dir.exists():
+                searcher.load_chroma()
+    except Exception as e:
+        st.warning(f"Search index not available: {e}")
 
     return cfg, sentiment, aspect, indexer, searcher, reranker
 
