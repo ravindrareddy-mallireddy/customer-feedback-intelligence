@@ -18,10 +18,10 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install core dependencies
+    - name: Install dependencies
       run: |
         pip install pytest pytest-cov
-        pip install pyyaml numpy pandas scikit-learn torch transformers peft datasets sentence-transformers bertopic umap-learn hdbscan tqdm python-dotenv faiss-cpu
+        pip install -r requirements.txt
 
     - name: Run tests
       run: |
