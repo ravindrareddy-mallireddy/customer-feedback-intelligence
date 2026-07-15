@@ -2,7 +2,7 @@
 
 # Raw and processed data
 data/raw/
-data/processed/
+# data/processed/
 
 # Virtual environment
 .venv/
