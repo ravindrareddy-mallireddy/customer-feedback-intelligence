@@ -2,8 +2,7 @@
 
 An end-to-end NLP pipeline that fine-tunes transformer models on 18,000+ real Amazon product reviews, builds a semantic search engine, generates automated insights using LLMs, and presents everything in an interactive live dashboard.
 
-**Live Demo:** https://customer-feedback-intel.streamlit.app
-
+**Live Demo:** https://customer-feedback-intelligence-amazon.streamlit.app
 ---
 
 ## Results
