@@ -21,7 +21,7 @@ jobs:
     - name: Install core dependencies
       run: |
         pip install pytest pytest-cov
-        pip install pyyaml numpy pandas scikit-learn torch transformers peft datasets sentence-transformers bertopic umap-learn hdbscan tqdm python-dotenv
+        pip install pyyaml numpy pandas scikit-learn torch transformers peft datasets sentence-transformers bertopic umap-learn hdbscan tqdm python-dotenv faiss-cpu
 
     - name: Run tests
       run: |
