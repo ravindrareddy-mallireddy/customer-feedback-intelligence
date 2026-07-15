@@ -23,6 +23,9 @@ def render(cfg, indexer, searcher, reranker):
             "Home_and_Kitchen", "Sports_and_Outdoors", "Books"
         ])
 
+    if searcher is None:
+        st.warning("Search index not available. Using embedding-only search.")
+
     if st.button("Search", type="primary") and query:
         with st.spinner("Searching..."):
             # Encode query
