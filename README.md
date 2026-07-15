@@ -1,5 +1,4 @@
-
-content = """# Customer Feedback Intelligence Platform
+# Customer Feedback Intelligence Platform
 
 An end-to-end NLP pipeline that fine-tunes transformer models on 18,000+ real Amazon product reviews, builds a semantic search engine, generates automated insights using LLMs, and presents everything in an interactive live dashboard.
 
