@@ -52,7 +52,7 @@ def test_aspect_model_config(cfg):
     model_cfg = cfg["models"]["aspect"]
     assert model_cfg["base_model"] == "distilbert-base-uncased"
     assert model_cfg["epochs"] == 5
-    assert model_cfg["batch_size"] == 16
+    assert model_cfg["batch_size"] == 8
 
 
 def test_lora_config_sentiment(cfg):
